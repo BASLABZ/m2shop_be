@@ -42,7 +42,7 @@
                     <div class="col-md-6">
                     	<section class="signup-form sm-margint">
                                 <div class="regular-signup">
-                        			<h3>Create an account</h3>
+                        			<h3>Buat Akun Pelanggan Baru</h3>
                                     <form class="role" method="POST">
                                         <div class="form-group">
                                             <label>Nama Lengkap</label>
@@ -57,14 +57,39 @@
                                         </div><div class="form-group">
                                             <label>Email</label>
                                             <input type="email" name="email" class="form-control" required=""> 
-                                        </div><div class="form-group">
-                                            <label>Tepon</label>
+                                        <div class="form-group">
+                                                <label>Asal Propinsi</label>
+                                                <br>
+                                                <select id="oriprovince" class="select2" style="width: 470px;">
+                                                    <option>Propinsi</option>
+                                                </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Asal Kota</label>
+                                            <br>
+                                                <select id="oricity" class="select2" style="width: 470px;">
+                                                <option>Kota</option></select>
+                                        </div>
+                                          </div><div class="form-group">
+                                            <label>Telepon</label>
                                             <input type="number" name="telpon" class="form-control" required=""> 
                                         </div>
+                                        <div class="form-group">
+                                            <label>alamat</label>
+                                            <textarea class="form-control" required="" name="alamat"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-success btn-block">
+                                                <span class="fa fa-save"></span> Simpan
+                                            </button>
+                                        </div>
                                     </form>
+                                          </div>
+                                    
                                 </div>
                         </section>
                     </div>
+                    <br>
                     <div class="col-md-12">
                          <header>
                             <center><h3><span class="fa fa-comments"></span> Testimoni  / Buku Tamu</h3></center>

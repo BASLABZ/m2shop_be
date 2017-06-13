@@ -57,7 +57,7 @@
                                 <li><a href="user-dashboard-settings.html">Keluar</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0)">Login</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
                         <li><a href="index.php?p=registrasi">Daftar</a></li>
                         <li><a href="index.php?p=kontak">Kontak</a>
                     </ul>

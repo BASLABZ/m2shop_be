@@ -1,6 +1,6 @@
 <div class="page-header parallax" style="background-image:url(images/page_header3.jpg);">
     	<div class="container">
-        	<h1 class="page-title">Listing results</h1>
+        	<h1 class="page-title">Produk M2SHOP</h1>
        	</div>
     </div>
      <div class="utility-bar">
@@ -38,16 +38,6 @@
                           	<li><a href="#">Mileage (High to Low)</a></li>
                         </ul>
                   	</div>
-                    
-                    <div class="toggle-view view-count-choice pull-right">
-                        <label>Show</label>
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">10</a>
-                            <a href="#" class="btn btn-default active">20</a>
-                            <a href="#" class="btn btn-default">50</a>
-                        </div>
-                    </div>
-                    
                     <div class="toggle-view view-format-choice pull-right">
                         <label>View</label>
                         <div class="btn-group">
