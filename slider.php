@@ -5,7 +5,7 @@
         <div class="tp-banner-container">
             <div class="tp-banner">
                 <ul>    <!-- SLIDE  -->
-                    <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/images/fullslide1-320x200.jpg"  data-saveperformance="off"  data-title="Slide 1" style="background-color: #ffa167;">
+                    <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/images/fullslide1-320x200.jpg"  data-saveperformance="off" style="background-color: #ffa167;">
                         <!-- MAIN IMAGE -->
                         
                         <!-- LAYERS -->
@@ -23,7 +23,8 @@
                             data-endelementdelay="0.1"
                             data-endspeed="500"
                             data-endeasing="Power4.easeIn"
-                            style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">OUR CREDO
+                            style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">
+                            M2SHOP
                         </div>
                 
                         <!-- LAYER NR. 2 -->
@@ -61,7 +62,7 @@
                         </div>
                     </li>
                     <!-- SLIDE  -->
-                    <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/images/fullslide2-320x200.jpg"  data-saveperformance="off"  data-title="Next" style="background-color: #ffa167;">
+                    <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/images/fullslide2-320x200.jpg"  data-saveperformance="off"   style="background-color: #ffa167;">
                         <!-- MAIN IMAGE -->
                         <img src=""  alt="fullslide2"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                         <!-- LAYERS -->
@@ -118,7 +119,7 @@
                         </div>
                     </li>
                     <!-- SLIDE  -->
-                    <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/images/fullslide6-320x200.jpg"  data-saveperformance="off"  data-title="SLIDE">
+                    <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-thumb="assets/images/fullslide6-320x200.jpg"  data-saveperformance="off"  >
                         <!-- MAIN IMAGE -->
                         <img src="images/slider6.jpg"  alt="fullslide6"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                         <!-- LAYERS -->
@@ -136,7 +137,7 @@
                             data-endelementdelay="0.1"
                             data-endspeed="500"
                             data-endeasing="Power4.easeIn"
-                            style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">SKY HIGH
+                            style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">Terpercaya
                         </div>
                 
                         <!-- LAYER NR. 2 -->

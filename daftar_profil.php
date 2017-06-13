@@ -55,13 +55,14 @@
                                 	<h3 class="post-title" style="color: white;"><a href="#" style="color: white;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal-<?php echo $rowprofil['profil_id']; ?>">
                                 	<span class="fa fa-eye"></span>
                                 	<?php echo $rowprofil['profil_nm']; ?></a></h3>
+                                     <ul class="social-icons social-icons-colored">
+                                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                    </ul>
                                 </center>
-                                <ul class="social-icons social-icons-colored">
-                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                </ul>
+                               
                             </div>
                         </div>
                     </li>

@@ -6,11 +6,11 @@
             	<div class="row">
                 	<div class="col-md-6">
                     	<h1 class="uppercase strong">M2SHOP<br>Online Shop</h1>
-                        <p class="lead">AutoStars is the world's leading portal for<br>easy and quick <span class="accent-color">car buying and selling</span></p>
+                        <p class="lead">M2SHOP is the world's leading portal for<br>easy and quick <span class="accent-color">car buying and selling</span></p>
                     </div>
                     <div class="col-md-6">
-                    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, <span class="accent-color">consectetur adipiscing</span> elit. Nulla convallis egestas rhoncus.</p>
+                    	<p>Terinspirasi oleh trend fashion yang semakin berkembang pesat, maka kami siap memberikan solusi untuk gaya fashion anda dengan berbagai produk yang up to date dan pasti dengan harga terjangkau.</p>
+                        <p>Terinspirasi oleh trend fashion yang semakin berkembang pesat, maka kami siap memberikan solusi untuk gaya fashion anda dengan berbagai produk yang up to date dan pasti dengan harga terjangkau.</p>
                     </div>
                 </div>
                 <div class="spacer-75"></div>

@@ -7,9 +7,10 @@
             }
         }
   ?>
- <div class="page-header parallax">
-    	<!-- <div id="contact-map" style="width:100%;height:300px"></div> -->
-    </div>
+ <!-- <div class="page-header parallax">
+    	<div id="contact-map" style="width:100%;height:300px"></div>
+    </div> -->
+    <br>
      <!-- Utiity Bar -->
     <div class="utility-bar">
     	<div class="container">
@@ -17,7 +18,7 @@
             	<div class="col-md-8 col-sm-6 col-xs-8">
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
-                        <li class="active">Contact Us</li>\
+                        <li class="active">Contact Us</li>
                         <li class="active">Testimoni</li>
                     </ol>
             	</div>

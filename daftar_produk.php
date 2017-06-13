@@ -1,15 +1,16 @@
-<div class="page-header parallax" style="background-image:url(images/page_header3.jpg);">
+<!-- <div class="page-header parallax" style="background-image:url(images/page_header3.jpg); ">
     	<div class="container">
         	<h1 class="page-title">Produk M2SHOP</h1>
        	</div>
-    </div>
-     <div class="utility-bar">
+    </div> -->
+    <br>
+     <div class="utility-bar" style="background-color: #e96c4c;">
     	<div class="container">
         	<div class="row">
             	<div class="col-md-8 col-sm-6 col-xs-8">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Daftar Produk</li>
+                        <li><a href="index.php" style="color: white;">Home</a></li>
+                        <li class="active" style="color: white;">Daftar Produk</li>
                     </ol>
             	</div>
                 <div class="col-md-4 col-sm-6 col-xs-4">
@@ -18,11 +19,13 @@
       	</div>
     </div>
      <!-- Actions bar -->
-    <div class="actions-bar tsticky">
+    <div class="actions-bar tsticky" style="background-color:#37bc9b; ">
      	<div class="container">
         	<div class="row">
             	<div class="col-md-3 col-sm-3 search-actions">
                 	
+                    <img src="images/logo.jpg" class="img-circle img-responsive" style="width: 20%;">
+
                 </div>
                 <div class="col-md-9 col-sm-9">
                     <div class="btn-group pull-right results-sorter">
@@ -39,7 +42,7 @@
                         </ul>
                   	</div>
                     <div class="toggle-view view-format-choice pull-right">
-                        <label>View</label>
+                        <label style="color: white;">View</label>
                         <div class="btn-group">
                             <a href="#" class="btn btn-default active" id="results-list-view"><i class="fa fa-th-list"></i></a>
                             <a href="#" class="btn btn-default" id="results-grid-view"><i class="fa fa-th"></i></a>
@@ -59,9 +62,8 @@
                     <!-- Search Filters -->
                     <div class="col-md-3 search-filters" id="Search-Filters">
                     	<div class="tbsticky filters-sidebar">
-                            <h3>Refine Search</h3>
+                            <h3>Filter Produk</h3>
                             <div class="accordion" id="toggleArea">
-                                
                                 <!-- Filter by Body Type -->
                                 <div class="accordion-group">
                                     <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseFour">Kategori Produk <i class="fa fa-angle-down"></i> </a> </div>
@@ -161,7 +163,8 @@
                                 		<a href="admin/images/<?php echo $rowproduk['gambar']; ?>" data-rel="prettyPhoto" class="media-box"><img src="admin/images/<?php echo $rowproduk['gambar']; ?>" style="width: 285px; height: 233px;"></a>
                                         <span class="label label-success vehicle-age"><?php echo $rowproduk['kat_nm']; ?></span>
                                         <div class="result-item-view-buttons">
-                                        	<a href="admin/images/<?php echo $rowproduk['gambar']; ?>" data-rel="prettyPhoto"><i class="fa fa-plus"></i> View details</a>
+                                            <a href="index.php?p=detail_produk&id=<?php echo $rowproduk['id_produk']; ?>"><i class="fa fa-eye"></i> View Detail</a>
+                                            <a href="vehicle-details.html"><i class="fa fa-shopping-cart"></i> Beli</a>
                                         </div>
                                     </div>
                                 	<div class="result-item-in">
@@ -176,16 +179,16 @@
                                                 <div class="result-item-pricing">
                                                     <div class="price">Rp. <?php echo rupiah($rowproduk['harga']); ?></div>
                                                 </div>
-                                                <div class="result-item-action-buttons">
+                                              <!--   <div class="result-item-action-buttons">
                                                     <a href="#" class="btn btn-default btn-sm"><i class="fa fa-star-o"></i> Save</a>
                                                     <a href="vehicle-details.html" class="btn btn-default btn-sm">Enquire</a><br>
-                                                </div>
+                                                </div> -->
                                             </div>
                                        	</div>
                                         <div class="result-item-features">
                                             <ul class="inline">
-                                                <li><?php echo $rowproduk['kat_nm']; ?></li>
-                                                <li>Admin</li>
+                                                <li>Kategori : <?php echo $rowproduk['kat_nm']; ?></li>
+                                                <li>Post by : Admin</li>
                                             </ul>
                                         </div>
                                     </div>
