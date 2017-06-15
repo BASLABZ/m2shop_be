@@ -58,7 +58,7 @@
                         <section class="listing-block latest-news">
 
                             <div class="listing-header">
-                            	<a href="blog.html" class="btn btn-sm btn-default pull-right">Semua Berita</a>
+                            	<!-- <a href="index.php" class="btn btn-sm btn-default pull-right">Semua Berita</a> -->
                                 <h3>Daftar Berita</h3>
                             </div>
                             <div class="listing-container">

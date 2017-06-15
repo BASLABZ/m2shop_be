@@ -24,7 +24,8 @@
         	<div class="row">
             	<div class="col-md-3 col-sm-3 search-actions">
                 	
-                    <img src="images/logo.jpg" class="img-circle img-responsive" style="width: 20%;">
+                    <!-- <img src="images/logo.jpg" class="img-circle img-responsive" style="width: 20%;"> -->
+                    <h3 style="color: white;"><span class="fa fa-tasks"></span> Filter Produk</h3>
 
                 </div>
                 <div class="col-md-9 col-sm-9">
