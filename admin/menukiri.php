@@ -54,6 +54,7 @@
                             <li><a href="index.php?pos=preview_laporan_member">Laporan Data Member</a></li>
                             <li><a href="index.php?pos=preview_laporan_produk">Laporan Data Produk</a></li>
                             <li><a href="index.php?pos=preview_laporan_produk_menipis">Laporan Produk Menipis</a></li>
+                            <li><a href="index.php?pos=preview_cartting_produk">Cart Produk </a></li>
                             <li><a href="index.php?pos=data_cara_order">Laporan Transaksi</a></li>
                         </ul>
                     </li>
