@@ -31,7 +31,7 @@
                                     <li class="item">
                                         <div class="vehicle-block format-standard">
                                             <a href="#" class="media-box">
-                                            <img src="admin/images/<?php echo $rowProduk['gambar']; ?>" style="width: 245px; height: 243px;" class="dim_about_item"></a>
+                                            <img src="admin/images/<?php echo $rowProduk['gambar']; ?>" style="width: 245px; height: 243px;"></a>
                                             <div class="vehicle-block-content">
                                                 <span class="label label-success premium-listing">
                                                     <?php echo $rowProduk['kat_nm']; ?>
@@ -108,55 +108,7 @@
                     </div>
                     
                 </div>
-                <hr class="fw">
-                <!-- <div class="text-align-center"><h2 class="uppercase">Profil Kami</h2></div> -->
-                <div class="spacer-20"></div>
-                <div class="row">
-                <ul class="sort-destination gallery-grid" data-sort-id="gallery">
-                    <?php 
-                        $queryprofil = mysql_query("SELECT * FROM profil order by profil_id ASC");
-                        while ($rowprofil = mysql_fetch_array($queryprofil)) {
-                     ?>
-                    <li class="col-md-4 col-sm-4 grid-item format-image ">
-                        <div class="grid-item-inner dim_about">
-                            <a href="admin/images/<?php echo $rowprofil['gambar']; ?>" data-rel="prettyPhoto" class="media-box"> <img src="admin/images/<?php echo $rowprofil['gambar']; ?>" alt=""> </a>
-                            <div class="grid-content">
-                                <center>
-                                    <h3 class="post-title" style="color: white;"><a href="#" style="color: white;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal-<?php echo $rowprofil['profil_id']; ?>">
-                                    <span class="fa fa-eye"></span>
-                                    <?php echo $rowprofil['profil_nm']; ?></a></h3>
-                                </center>
-                                <ul class="social-icons social-icons-colored">
-                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- show deskripsi -->
-                    <div id="myModal-<?php echo $rowprofil['profil_id']; ?>" class="modal fade" role="dialog">
-                      <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                          <div class="modal-header" style="background-color: #37bc9b;">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title" style="color: white;" ><?php echo $rowprofil['profil_nm']; ?></h4>
-                          </div>
-                          <div class="modal-body">
-                            <p><?php echo $rowprofil['profil_des']; ?></p>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                    <?php } ?>
-                </ul>
-            </div>
+                            
         </div>
     </div>
                             <div class="listing-header">

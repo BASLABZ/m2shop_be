@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include('admin/koneksi.php');
+    include('admin_old/koneksi.php');
     if (isset($_GET['logout'])) 
     {session_destroy();   header('Location: index.php');}
     
