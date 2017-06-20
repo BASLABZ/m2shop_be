@@ -17,6 +17,8 @@
 	      $email = $log['email'];
 	      $notelp = $log['telpon'];
 	      $alamat = $log['alamat'];
+	      $propinsi  = $log['propinsi'];
+	      $kabupaten  = $log['kabupaten'];
 
 	      $no++;
 	    }
@@ -29,6 +31,8 @@
 	        $_SESSION['email'] = $email;
 	        $_SESSION['alamat'] = $alamat;
 	        $_SESSION['telpon'] = $notelp;
+	        $_SESSION['propinsi'] = $propinsi;
+	        $_SESSION['kabupaten'] = $kabupaten;
 	        echo "<script> alert('Login Sukses'); location.href='index.php'</script>";exit;
 	    }else
 	    {

@@ -24,6 +24,10 @@
                         <a href="index.php"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
                     </li>
                     <li>
+                        <a href="index.php?pos=data_transaksi_pembelian"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Data Penjualan</span></a>
+                    </li>
+                    
+                    <li>
                         <a href="index.php?pos=data_admin"><i class="fa fa-users"></i> <span class="nav-label">Data Admin</span></a>
                     </li>
                     <li>
@@ -55,7 +59,7 @@
                             <li><a href="index.php?pos=preview_laporan_produk">Laporan Data Produk</a></li>
                             <li><a href="index.php?pos=preview_laporan_produk_menipis">Laporan Produk Menipis</a></li>
                             <li><a href="index.php?pos=preview_cartting_produk">Cart Produk </a></li>
-                            <li><a href="index.php?pos=data_cara_order">Laporan Transaksi</a></li>
+                            <li><a href="index.php">Laporan Transaksi</a></li>
                         </ul>
                     </li>
                 </ul>

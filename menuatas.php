@@ -20,9 +20,6 @@
                     <div class="topnav dd-menu">
                         <ul class="top-navigation sf-menu">
                             <li><a href="index.php?p=cart" style="color: white;"><span class="fa fa-shopping-cart"></span> Keranjang</a></li>
-                             <?php if (isset($_SESSION['id_kustomer'])) {
-                               echo "<li><a href='index.php' style='color: white;'><span class='fa fa-check'></span> Check Out</a></li>";  
-                             } ?>
                         </ul>
                     </div>
                 </div>

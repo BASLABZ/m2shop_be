@@ -37,7 +37,7 @@ function harusangka(jumlah){
                                         $jumlah_pembelian = mysql_fetch_array($query_pembelian);
                                      ?>
                                      <span class="badge"><?php echo $jumlah_pembelian['JUMLAH_PEMBELIAN']; ?></span> 
-                                    <a href="user-dashboard-saved-cars.html"><i class="fa fa-list"></i>Pembelian Barang</a></li>
+                                    <a href="index.php?p=list_pembelian"><i class="fa fa-list"></i>Pembelian Barang</a></li>
                                     <li class="list-group-item"> <a href="index.php?logout=1"><i class="fa fa-sign-out"></i> Keluar</a></li>
                                 </ul>
                             </div>

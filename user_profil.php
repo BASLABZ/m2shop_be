@@ -37,19 +37,58 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-4">
                             <!-- SIDEBAR -->
+                            <?php if (isset($_SESSION['id_kustomer'])) { ?>
                             <div class="users-sidebar tbssticky">
-                            	<a href="index.php?p=user_profil" class="btn btn-block btn-primary add-listing-btn">Profil Kustomer</a>
+                                <a href="index.php?p=user_profil" class="btn btn-block btn-primary add-listing-btn">Profil Kustomer</a>
                                 <ul class="list-group">
-                                    <li class="list-group-item active"> <a href="user-dashboard-profile.html"><i class="fa fa-user"></i> Profil Ku</a></li>
-                                    <li class="list-group-item"> <span class="badge">5</span> <a href="user-dashboard.html"><i class="fa fa-home"></i> Dashboard</a></li>
-                                    <li class="list-group-item"> <span class="badge">5</span> <a href="user-dashboard-saved-searches.html"><i class="fa fa-folder-o"></i> Saved Searches</a></li>
-                                    <li class="list-group-item"> <span class="badge">12</span> <a href="user-dashboard-saved-cars.html"><i class="fa fa-star-o"></i> Saved Cars</a></li>
-                                    <li class="list-group-item"> <a href="add-listing-form.html"><i class="fa fa-plus-square-o"></i> Create new Ad</a></li>
-                                    <li class="list-group-item"> <span class="badge">2</span> <a href="user-dashboard-manage-ads.html"><i class="fa fa-edit"></i> Manage Ads</a></li>
-                                    <li class="list-group-item"> <a href="user-dashboard-settings.html"><i class="fa fa-cog"></i> Account Settings</a></li>
-                                    <li class="list-group-item"> <a href="javascript:void(0)"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                                    <li class="list-group-item"> <a href="index.php?p=user_profil"><i class="fa fa-user"></i> Profil Ku</a></li>
+                                    <li class="list-group-item active"> 
+                                    <?php 
+                                       $sid_cek = session_id();
+                                        $query_jumlah_keranjang = mysql_query("SELECT count(*) As JUMLAH_ORDER_SEMENTARA FROM orders_temp where id_session = '".$sid_cek."'");
+                                        $jumlah_order = mysql_fetch_array($query_jumlah_keranjang);
+                                        if ($jumlah_order['JUMLAH_ORDER_SEMENTARA'] >0 ) {
+                                     ?>
+                                      <span class="badge"><?php echo $jumlah_order['JUMLAH_ORDER_SEMENTARA']; ?></span> 
+                                       <?php } ?>
+                                     <a href="index.php?p=cart"><i class="fa fa-shopping-cart"></i> Keranjang Belanja</a></li>
+                                    
+                                    <li class="list-group-item">
+                                    <?php 
+                                        $query_pembelian = mysql_query("SELECT count(*) AS JUMLAH_PEMBELIAN FROM orders where id_kustomer = '".$_SESSION['id_kustomer']."'");
+                                        $jumlah_pembelian = mysql_fetch_array($query_pembelian);
+                                     ?>
+                                     <span class="badge"><?php echo $jumlah_pembelian['JUMLAH_PEMBELIAN']; ?></span> 
+                                    <a href="index.php?p=list_pembelian"><i class="fa fa-list"></i>Pembelian Barang</a></li>
+                                    <li class="list-group-item"> <a href="index.php?logout=1"><i class="fa fa-sign-out"></i> Keluar</a></li>
                                 </ul>
                             </div>
+                            <?php }else{ ?>
+                            <div class="users-sidebar tbssticky">
+                                <ul class="list-group">
+
+                                    <li class="list-group-item active"> 
+                                    <?php 
+                                       $sid_cek = session_id();
+                                        $query_jumlah_keranjang = mysql_query("SELECT count(*) As JUMLAH_ORDER_SEMENTARA FROM orders_temp where id_session = '".$sid_cek."'");
+                                        $jumlah_order = mysql_fetch_array($query_jumlah_keranjang);
+                                        if ($jumlah_order['JUMLAH_ORDER_SEMENTARA'] >0 ) {
+                                     ?>
+                                      <span class="badge"><?php echo $jumlah_order['JUMLAH_ORDER_SEMENTARA']; ?></span> 
+                                       <?php } ?>
+                                     <a href="index.php?p=cart"><i class="fa fa-shopping-cart"></i> Keranjang Belanja</a></li>
+
+                                    <li class="list-group-item"> <a data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in"></i> Login</a></li>
+                                    <li class="list-group-item"> <a href="index.php?p=cart"><i class="fa fa-check"></i> Informasi Keranjang Belanja</a>
+                                      <p>
+                                          Untuk Melakukan Pembelian Silahkan Login Terbih Dahulu,<br>
+                                          Atau Baca Aturan Cara Pembelian <br>
+                                          <a href="index.php?p=caraorder" class="btn btn-success btn-block btn-xs pull-right" style="color: white;"><span class="fa fa-book"></span> Cara Beli </a> <br>
+                                      </p>
+                                      </li>
+                                </ul>
+                            </div>
+                            <?php } ?>
                         </div>
                         <div class="col-md-9 col-sm-8">
                         	<h2>Profil Kustomer </h2>

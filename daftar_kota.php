@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6">
                             <div class="dealer-block-add">
-                                <span><strong>Simulasi </strong> Ongkir </span>
+                                <span> <strong> Simulasi </strong> Ongkir </span>
                                 <!-- <span><img src="images/peng.jpg" style="width: 40%;"></span> -->
                             </div>
                         </div>
