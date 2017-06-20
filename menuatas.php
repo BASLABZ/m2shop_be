@@ -60,7 +60,7 @@
                         <li><a href="javascript:void(0)">Userprofil</a>
                             <ul class="dropdown">
                                 <li><a href="index.php?p=user_profil">User Profile</a></li>
-                                <li><a href="user-dashboard-settings.html">User Settings</a></li>
+                                <li><a href="index.php?p=list_pembelian">Dasboarad</a></li>
                                 <li><a href="index.php?logout=1">Keluar</a></li>
                             </ul>
                         </li>
