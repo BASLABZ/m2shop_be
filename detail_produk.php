@@ -111,41 +111,19 @@ $id = $_GET['id'];
                                     <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseEight">Filter Harga <i class="fa fa-angle-down"></i> </a> </div>
                                     <div id="collapseEight" class="accordion-body collapse">
                                         <div class="accordion-inner">
-                                            <div class="form-inline">
+                                            <form class="role" method="POST" action="index.php?p=filter_harga_produk">
+                                                <div class="form-inline">
                                                 <div class="form-group">
                                                     <label>Harga Min</label>
-                                                    <select name="Min Price" class="form-control selectpicker">
-                                                        <option selected>Rp Nominal</option>
-                                                        <option>10000</option>
-                                                        <option>20000</option>
-                                                        <option>30000</option>
-                                                        <option>40000</option>
-                                                        <option>50000</option>
-                                                        <option>60000</option>
-                                                        <option>70000</option>
-                                                        <option>80000</option>
-                                                        <option>90000</option>
-                                                        <option>100000</option>
-                                                    </select>
+                                                    <input type="number" class="form-control" placeholder="Min." name="harga_min">
                                                 </div>
                                                 <div class="form-group last-child">
                                                     <label>Harga Max</label>
-                                                    <select name="Max Price" class="form-control selectpicker">
-                                                        <option selected>Rp Nominal</option>
-                                                        <option>10000</option>
-                                                        <option>20000</option>
-                                                        <option>30000</option>
-                                                        <option>40000</option>
-                                                        <option>50000</option>
-                                                        <option>60000</option>
-                                                        <option>70000</option>
-                                                        <option>80000</option>
-                                                        <option>90000</option>
-                                                        <option>100000</option>
-                                                    </select>
+                                                    <input type="number" class="form-control" placeholder="Max." name="harga_max">
                                                 </div>
-                                                <button type="submit" class="btn btn-default btn-sm pull-right">Filter</button>
+                                                <button type="submit" class="btn btn-info btn-block"><span class="fa fa-check"></span> Filter</button>
                                             </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

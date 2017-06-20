@@ -1,37 +1,31 @@
-<?php 
-	$harga_min = $_POST['harga_min'];
-	$harga_max = $_POST['harga_max'];
- ?>
-
- <!-- <div class="page-header parallax" style="background-image:url(images/page_header3.jpg); ">
-    	<div class="container">
-        	<h1 class="page-title">Produk M2SHOP</h1>
-       	</div>
+<!-- <div class="page-header parallax" style="background-image:url(images/page_header3.jpg); ">
+        <div class="container">
+            <h1 class="page-title">Produk M2SHOP</h1>
+        </div>
     </div> -->
     <br>
      <div class="utility-bar" style="background-color: #e96c4c;">
-    	<div class="container">
-        	<div class="row">
-            	<div class="col-md-8 col-sm-6 col-xs-8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-8">
                     <ol class="breadcrumb">
                         <li><a href="index.php" style="color: white;">Home</a></li>
                         <li class="active" style="color: white;">Daftar Produk</li>
                     </ol>
-            	</div>
+                </div>
                 <div class="col-md-4 col-sm-6 col-xs-4">
                 </div>
             </div>
-      	</div>
+        </div>
     </div>
      <!-- Actions bar -->
     <div class="actions-bar tsticky" style="background-color:#37bc9b; ">
-     	<div class="container">
-        	<div class="row">
-            	<div class="col-md-3 col-sm-3 search-actions">
-                	
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 search-actions">
+                    
                     <!-- <img src="images/logo.jpg" class="img-circle img-responsive" style="width: 20%;"> -->
-                    <h3 style="color: white;"><span class="fa fa-tasks"></span> Filter Produk </h3>
-                    <small style="color: white;">Berdasarkan Harga : <?php echo rupiah($harga_min); ?> - <?php echo rupiah($harga_max); ?></small>
+                    <h3 style="color: white;"><span class="fa fa-tasks"></span> Filter Produk</h3>
 
                 </div>
                 <div class="col-md-9 col-sm-9">
@@ -45,7 +39,7 @@
                             <li><a href="index.php?p=filter_harga_terendah">Harga (Tinggi Ke Rendah)</a></li>
                             <li><a href="index.php?p=daftar_produk">Harga (Rendah Ke Tinggi)</a></li>
                         </ul>
-                  	</div>
+                    </div>
                     <div class="toggle-view view-format-choice pull-right">
                         <label style="color: white;">View</label>
                         <div class="btn-group">
@@ -57,16 +51,16 @@
                     <button class="btn btn-default visible-xs" id="Show-Filters">Search Filters</button> 
                 </div>
             </div>
-      	</div>
+        </div>
     </div>
     <!-- Start Body Content -->
-  	<div class="main" role="main">
-    	<div id="content" class="content full">
-        	<div class="container">
-            	<div class="row">
+    <div class="main" role="main">
+        <div id="content" class="content full">
+            <div class="container">
+                <div class="row">
                     <!-- Search Filters -->
                     <div class="col-md-3 search-filters" id="Search-Filters">
-                    	<div class="tbsticky filters-sidebar">
+                        <div class="tbsticky filters-sidebar">
                             <h3>Filter Produk</h3>
                             <div class="accordion" id="toggleArea">
                                 <!-- Filter by Body Type -->
@@ -126,23 +120,24 @@
                     <!-- Listing Results -->
                     <div class="col-md-9 results-container">
                         <div class="results-container-in">
-                        	<div class="waiting" style="display:none;">
-                            	<div class="spinner">
-                                  	<div class="rect1"></div>
-                                  	<div class="rect2"></div>
-                                  	<div class="rect3"></div>
-                                  	<div class="rect4"></div>
-                                  	<div class="rect5"></div>
+                            <div class="waiting" style="display:none;">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
                                 </div>
                             </div>
-                        	<div id="results-holder" class="results-grid-view">
-                            	<?php 
-                                $queryproduk = mysql_query("SELECT p.id_produk,p.nama_produk,p.status,p.tgl_posting,p.harga,p.deskripsi,p.stok,p.gambar,p.public,k.kat_nm from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok >= 0 AND p.harga BETWEEN '".$harga_min."' AND '".$harga_max."' order by p.id_produk desc");
+                            <div id="results-holder" class="results-grid-view">
+                                <?php 
+                                $queryproduk = mysql_query("SELECT p.id_produk,p.nama_produk,p.status,p.tgl_posting,p.harga,p.deskripsi,p.stok,p.gambar,p.public,k.kat_nm 
+                            from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok >= 0 order by p.id_produk ASC");
                                 while ($rowproduk = mysql_fetch_array($queryproduk)) {
                                  ?>
-                            	<div class="result-item format-standard">
-                                	<div class="result-item-image">
-                                		<a href="admin/images/<?php echo $rowproduk['gambar']; ?>" data-rel="prettyPhoto" class="media-box"><img src="admin/images/<?php echo $rowproduk['gambar']; ?>" style="width: 285px; height: 233px;"></a>
+                                <div class="result-item format-standard">
+                                    <div class="result-item-image">
+                                        <a href="admin/images/<?php echo $rowproduk['gambar']; ?>" data-rel="prettyPhoto" class="media-box"><img src="admin/images/<?php echo $rowproduk['gambar']; ?>" style="width: 285px; height: 233px;"></a>
 
                                         <span class="label label-success vehicle-age"><?php echo $rowproduk['kat_nm']; ?></span>
                                         <?php if ($rowproduk['status']=='new') { ?>
@@ -157,11 +152,11 @@
                                             <?php } ?>
                                         </div>
                                     </div>
-                                	<div class="result-item-in">
-                                     	<h4 class="result-item-title"><a href="index.php?p=detail_produk&id=<?php echo $rowproduk['id_produk']; ?>">
+                                    <div class="result-item-in">
+                                        <h4 class="result-item-title"><a href="index.php?p=detail_produk&id=<?php echo $rowproduk['id_produk']; ?>">
                                           <?php echo $rowproduk['nama_produk']; ?>  
                                         </a></h4>
-                                		<div class="result-item-cont">
+                                        <div class="result-item-cont">
                                             <div class="result-item-block col1">
                                                 <p><?php echo $rowproduk['deskripsi']; ?></p>
                                             </div>
@@ -184,7 +179,7 @@
 
                                                 </div>
                                             </div>
-                                       	</div>
+                                        </div>
                                         <div class="result-item-features">
                                             <ul class="inline">
                                                 <li>Kategori : <?php echo $rowproduk['kat_nm']; ?></li>
@@ -197,7 +192,7 @@
                             </div>
                         </div>
                     </div>
-               	</div>
+                </div>
             </div>
         </div>
-   	</div>
+    </div>

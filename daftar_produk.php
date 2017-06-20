@@ -30,16 +30,14 @@
                 </div>
                 <div class="col-md-9 col-sm-9">
                     <div class="btn-group pull-right results-sorter">
-                        <button type="button" class="btn btn-default listing-sort-btn">Sort by</button>
+                        <button type="button" class="btn btn-default listing-sort-btn">Filter</button>
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                           <span class="caret"></span>
                           <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
-                          	<li><a href="#">Price (High to Low)</a></li>
-                          	<li><a href="#">Price (Low to High)</a></li>
-                          	<li><a href="#">Mileage (Low to High)</a></li>
-                          	<li><a href="#">Mileage (High to Low)</a></li>
+                            <li><a href="index.php?p=filter_harga_terendah">Harga (Tinggi Ke Rendah)</a></li>
+                            <li><a href="index.php?p=daftar_produk">Harga (Rendah Ke Tinggi)</a></li>
                         </ul>
                   	</div>
                     <div class="toggle-view view-format-choice pull-right">
@@ -93,44 +91,22 @@
                                 
                                 <!-- Filter by Price -->
                                 <div class="accordion-group">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseEight">Price <i class="fa fa-angle-down"></i> </a> </div>
+                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseEight">Filter Harga <i class="fa fa-angle-down"></i> </a> </div>
                                     <div id="collapseEight" class="accordion-body collapse">
                                         <div class="accordion-inner">
-                                            <div class="form-inline">
-  												<div class="form-group">
-                                                    <label>Price Min</label>
-                                                    <select name="Min Price" class="form-control selectpicker">
-                                                        <option selected>Any</option>
-                                                        <option>$10000</option>
-                                                        <option>$20000</option>
-                                                        <option>$30000</option>
-                                                        <option>$40000</option>
-                                                        <option>$50000</option>
-                                                        <option>$60000</option>
-                                                        <option>$70000</option>
-                                                        <option>$80000</option>
-                                                        <option>$90000</option>
-                                                        <option>$100000</option>
-                                                    </select>
+                                            <form class="role" method="POST" action="index.php?p=filter_harga_produk">
+                                                <div class="form-inline">
+                                                <div class="form-group">
+                                                    <label>Harga Min</label>
+                                                    <input type="number" class="form-control" placeholder="Min." name="harga_min">
                                                 </div>
-                                                <div class="form-group last-child">
-                                                    <label>Price Max</label>
-                                                    <select name="Max Price" class="form-control selectpicker">
-                                                        <option selected>Any</option>
-                                                        <option>$10000</option>
-                                                        <option>$20000</option>
-                                                        <option>$30000</option>
-                                                        <option>$40000</option>
-                                                        <option>$50000</option>
-                                                        <option>$60000</option>
-                                                        <option>$70000</option>
-                                                        <option>$80000</option>
-                                                        <option>$90000</option>
-                                                        <option>$100000</option>
-                                                    </select>
+                                                <div class="form-group">
+                                                    <label>Harga Max</label>
+                                                    <input type="number" class="form-control" placeholder="Max." name="harga_max">
                                                 </div>
-                                                <button type="submit" class="btn btn-default btn-sm pull-right">Filter</button>
+                                                <button type="submit" class="btn btn-info btn-block"><span class="fa fa-check"></span> Filter</button>
                                             </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +129,7 @@
                                   	<div class="rect5"></div>
                                 </div>
                             </div>
-                        	<div id="results-holder" class="results-list-view">
+                        	<div id="results-holder" class="results-grid-view">
                             	<?php 
                                 $queryproduk = mysql_query("SELECT p.id_produk,p.nama_produk,p.status,p.tgl_posting,p.harga,p.deskripsi,p.stok,p.gambar,p.public,k.kat_nm 
                             from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok >= 0 order by p.id_produk desc");
