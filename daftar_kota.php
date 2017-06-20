@@ -50,7 +50,7 @@
                                     <div class="col-md-6">
                                         <label class="col-md-6" align='right'>Asal Propinsi</label>
                                         <div class="col-md-6">
-                                            <select id="oriprovince" class="select2">
+                                            <select id="oriprovince" class="select2" style="width: 176px;">
                                                 <option>Propinsi</option>
                                             </select>
                                         </div>
@@ -59,7 +59,7 @@
                                         <label class="col-md-3" align='left'>Asal Kota</label>
                                         <div class="col-md-6">
                                         <p align="left">
-                                            <select id="oricity" class="select2"><option>Kota</option></select></p>
+                                            <select id="oricity" class="select2"  style="width: 176px;"><option>Kota</option></select></p>
                                         </div>
                                     </div>
                                 </div>
@@ -68,14 +68,14 @@
                                     <div class="col-md-6">
                                         <label class="col-md-6" align='right'>Tujuan Propinsi</label>
                                         <div class="col-md-6">
-                                            <select id="desprovince" class="select2"><option>Provinsi</option></select>
+                                            <select id="desprovince" class="select2" style="width: 176px;"><option>Provinsi</option></select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="col-md-3" align='left'>Tujuan Kota</label>
                                         <div class="col-md-6">
                                         <p align="left">
-                                            <select id="descity" class="select2"><option>Kota</option></select></p>
+                                            <select id="descity" class="select2" style="width: 176px;"><option>Kota</option></select></p>
                                         </div>
                                     </div>
                                 </div>

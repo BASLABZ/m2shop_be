@@ -1,16 +1,18 @@
 <?php 
 $id = $_GET['id'];
 
-        $queryproduk = mysql_query("SELECT p.id_produk,p.nama_produk,p.tgl_posting,p.harga,p.deskripsi,p.stok,p.gambar,p.public,k.kat_nm 
-    from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok>0 and p.id_produk='".$id."'");
+        $queryproduk = mysql_query("SELECT p.id_produk,p.nama_produk,p.tgl_posting,p.status,p.harga,p.deskripsi,p.stok,p.gambar,p.public,k.kat_nm 
+    from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok >= 0 and p.id_produk='".$id."'");
 
         $row_detail = mysql_fetch_array($queryproduk);
+
  ?>
-<div class="page-header parallax" style="background-image:url(images/page_header2.jpg);">
+ <br><br>
+<!-- <div class="page-header parallax" style="background-image:url(images/page_header2.jpg);">
     	<div class="container">
         	<h1 class="page-title">Vehicle Details</h1>
        	</div>
-    </div>
+    </div> -->
     <!-- Utiity Bar -->
     <div class="utility-bar" style="background-color: #e96c4c;">
     	<div class="container">
@@ -43,14 +45,23 @@ $id = $_GET['id'];
                 <article class="single-vehicle-details">
                     <div class="single-vehicle-title">
                         <span class="badge-premium-listing"><?php echo $row_detail['kat_nm']; ?></span>
-                        <h2 class="post-title"><?php echo $row_detail['nama_produk']; ?> | Rp. <?php echo rupiah($row_detail['harga']); ?> <a href="#" class="btn btn-md btn-success" style="color: white;"><span class="fa fa-shopping-cart"></span> Beli Sekarang</a></h2>
+                        <h2 class="post-title"><?php echo $row_detail['nama_produk']; ?> | Rp. <?php echo rupiah($row_detail['harga']); ?> 
+
+                        <?php if ($row_detail['stok'] > 0 ) { ?>
+                         <a href="aksi.php?module=keranjang&act=tambah&id=<?php echo $row_detail['id_produk']; ?>" class="btn btn-md btn-success" style="color: white;"><span class="fa fa-shopping-cart"></span> Beli Sekarang</a>
+                         <?php }else{ ?>
+                         <a href="index.php?p=detail_produk&id=<?php echo $id; ?>" class="btn btn-md btn-danger" style="color: white;"><span class="fa fa-times"></span> Stok Habis</a>
+                         <?php } ?>
+
+                        </h2>
+
                     </div>
                     
                     <div class="row">
                         <div class="col-md-8">
                             <div class="single-listing-images">
                                 <div class="featured-image format-image">
-                                    <a href="images/car1-b.jpg" data-rel="prettyPhoto[gallery]" class="media-box"><img src="admin/images/<?php echo $row_detail['gambar']; ?>" class="img-rounded"></a>
+                                    <a href="admin/images/<?php echo $row_detail['gambar']; ?>" data-rel="prettyPhoto[gallery]" class="media-box"><img src="admin/images/<?php echo $row_detail['gambar']; ?>" class="img-rounded"></a>
                                 </div>
                             </div>
                       	</div>
@@ -63,6 +74,9 @@ $id = $_GET['id'];
                                     <li class="list-group-item"> <span class="badge">Harga</span> Rp. <?php echo rupiah($row_detail['harga']); ?></li>
                                     <li class="list-group-item"> <span class="badge">Stok</span> <?php echo $row_detail['stok']; ?></li>
                                     <li class="list-group-item"> <span class="badge">Kategori</span> <?php echo $row_detail['kat_nm']; ?></li>
+                                    <?php if ($row_detail['status'] == 'new') {?>
+                                    <li class="list-grouproup-item"> <span class="fa fa-tags"> Produk</span> Baru</li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -188,6 +202,13 @@ $id = $_GET['id'];
                                             	<div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseForth"> Kategori : <?php echo $row_detail['kat_nm']; ?> <i class="fa fa-check"></i> </a> </div>
                                             	
                                           	</div>
+                                            <?php if ($row_detail['status'] == 'new') { ?>
+                                            <div class="accordion-group panel">
+                                                <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseForth"> <span class="fa fa-tags"></span> Baru <i class="fa fa-check"></i> </a> </div>
+                                            </div>
+                                            <?php } ?>
+
+                                            
                                   		</div>
                                         <!-- End Toggle --> 
                                     </div>
@@ -197,44 +218,44 @@ $id = $_GET['id'];
                         <div class="status alert alert-success" style="display: none"></div>
                          <div class="row">
                             <div class="role">
-                            <br>
-                                <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <label class="col-md-6" align='right'>Asal Propinsi</label>
-                                        <div class="col-md-6">
-                                            <select id="oriprovince" class="select2">
-                                                <option>Propinsi</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="col-md-3" align='left'>Asal Kota</label>
-                                        <div class="col-md-6">
-                                        <p align="left">
-                                            <select id="oricity" class="select2"><option>Kota</option></select></p>
+                                
+                            <form class="role">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-md-3">Asal Propinsi</label>
+                                         <div class="col-md-6">
+                                            <select class="form-control select2" id="oriprovince" style="width: 276px;"><option value="">Pilih Asal Propinsi</option></select>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- tujuan -->
-                                <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <label class="col-md-6" align='right'>Tujuan Propinsi</label>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-md-3">Asal Kota</label>
                                         <div class="col-md-6">
-                                            <select id="desprovince" class="select2"><option>Provinsi</option></select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="col-md-3" align='left'>Tujuan Kota</label>
-                                        <div class="col-md-6">
-                                        <p align="left">
-                                            <select id="descity" class="select2"><option>Kota</option></select></p>
+                                               <select id="oricity" class="select2"  style="width: 276px;"><option>Kota</option></select>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- beerar dan layanan -->
-                                <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <label class="col-md-6" align='right'>Layanan</label>
+                                <hr>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-md-3">Tujuan Propinsi</label>
+                                        <div class="col-md-6">
+                                             <select id="desprovince" class="select2" style="width: 276px;"><option>Pilih Tujuan Provinsi</option></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-md-3">Tujuan Kota</label>
+                                        <div class="col-md-6">
+                                            <select id="descity" class="select2" style="width: 276px;"><option>Kota</option></select></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row jumbotron">
+                                     <div class="form-group">
+                                        <label class="col-md-2" align='right'>Layanan</label>
                                         <div class="col-md-3">
                                             <select id="service" class="six columns">
                                                 <option value="jne">JNE</option>
@@ -243,19 +264,25 @@ $id = $_GET['id'];
                                         </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="col-md-3" align='left'>Berita / gram</label>
-                                        <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-2" align='left'>Berita / gram</label>
+                                        <div class="col-md-2">
                                         <p align="left">
                                             <input type="number" style="width: 100px;" id="berat" ></p>
                                         </div>
-                                        <div class="col-md-12">
-                                            <button id="btncheck" class="btn btn-primary get" onclick="CekHarga()">
-                                            <span class="fa fa-truck fa-2x"></span> CEK HARGA</button>
+
+                                        <div class="form-group">
+                                           <div class="col-md-3">
+                                                <button id="btncheck" class="btn btn-primary get" onclick="CekHarga()">
+                                                <span class="fa fa-truck fa-2x"></span> CEK HARGA</button>
+                                           </div>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
-                                <hr>
+
+                            </form>
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-12">
@@ -267,7 +294,9 @@ $id = $_GET['id'];
                                         <th>Lama Kirim</th>
                                         <th>Total Biaya</th>
                                     </thead>    
-                                    <tbody id="resultsbox"></tbody>
+                                    <tbody id="resultsbox">
+                                        
+                                    </tbody>
                                     </table>
                                     </div>
                                     </div>
@@ -299,11 +328,13 @@ $id = $_GET['id'];
                                                     <div class="vehicle-block format-standard">
                                                         <a href="#" class="media-box"><img src="admin/images/<?php echo $row_resent_produk['gambar']; ?>" style="width: 214px; height: 143px"></a>
                                                         <span class="label label-primary vehicle-age"><?php echo $row_resent_produk['kat_nm']; ?></span>
-                                                        <h5 class="vehicle-title"><a href="#"><?php echo $row_resent_produk['nama_produk']; ?></a></h5>
-                                                        <a href="#" title="View all Sedans" class="vehicle-body-type">
-                                                            <span class="fa fa-shopping-cart"></span>
+                                                        <h5 class="vehicle-title"><a href="index.php?p=detail_produk&id=<?php echo $row_resent_produk['id_produk']; ?>"><?php echo $row_resent_produk['nama_produk']; ?> 
+                                                        <b> Rp.    <?php echo rupiah($row_resent_produk['harga']); ?></b>
+                                                        </a></h5>
+                                                        <a href="aksi.php?module=keranjang&act=tambah&id=<?php echo $row_resent_produk['id_produk']; ?>" title="View all Sedans">
+                                                            <span class="fa fa-shopping-cart"></span> Beli
                                                         </a>
-                                                        <span class="vehicle-cost"><?php echo rupiah($row_resent_produk['harga']); ?></span>
+                                                        <span class="vehicle-cost"> </span>
                                                     </div>
                                                 </li>
                                                 <?php } ?>

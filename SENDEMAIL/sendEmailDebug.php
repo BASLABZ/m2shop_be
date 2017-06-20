@@ -1,0 +1,38 @@
+
+<?php
+include 'config/config.php';
+$emails = $_GET['email'];
+date_default_timezone_set('Etc/UTC');
+require 'PHPMailerAutoload.php';
+$mail = new PHPMailer;
+$mail->isSMTP();
+// $mail->SMTPDebug = 2;
+$mail->Debugoutput = 'html';
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth = true;
+$mail->Username = "ahmad.bastian8@gmail.com";
+$mail->Password = "4m4nd4b4s";
+$mail->setFrom('ahmad.bastian8@gmail.com', 'Aktivasi AKun MT2SHOP');
+$namaPenerimaEmail  = "$emails";
+$mail->addAddress($emails, 'M2SHOP');
+function get_include_contents($filename) {
+
+    if (is_file($filename)) {
+        ob_start();
+        include $filename;
+        return ob_get_clean();
+    }
+    return false;
+}
+$mail->IsHTML(true);    // set email format to HTML
+$mail->Subject = "You have an event today";
+$mail->Body = get_include_contents('content\invoice.php'); // HTML -> PHP!
+if (!$mail->send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+} else {
+    // include 'mailkonfirmasi.php';
+     echo "<script>alert('Registrasi Sukses Dan Silahkan Konfirmasi Email Anda Untuk Aktifasi Akun');location.href='../index.php'</script>";exit;
+
+}

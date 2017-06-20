@@ -28,7 +28,7 @@ function loadProvinsi(id) {
 
             var result = jQuery.parseJSON(JSON.stringify(response['rajaongkir']['results']));
             $.each(result, function(i,n){
-                province = '<option value="'+n['province_id']+'">'+n['province']+'</option>';
+                province = '<option value="'+n['province_id']+'-'+n['province']+'">'+n['province']+'</option>';
                 province = province + '';
                 $(id).append(province);
             });
@@ -49,7 +49,7 @@ function loadCity(idprovince,id) {
             city = '';
                 var resultsCity = jQuery.parseJSON(JSON.stringify(response['rajaongkir']['results']));
                 $.each(resultsCity, function(is,ns){
-                    city = '<option value="'+ns['city_id']+'">'+ns['city_name']+'</option>';
+                    city = '<option value="'+ns['city_id']+'-'+ns['city_name']+'">'+ns['city_name']+'</option>';
                     city = city + '';
                     $(id).append(city);
                     
@@ -84,6 +84,6 @@ function CekHarga() {
 }
 
 function totalOngkir() {
-    alert('tes');
+    // alert('tes');
 }
 

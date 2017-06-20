@@ -1,24 +1,20 @@
  <?php 
         if (isset($_POST['simpan'])) {
             $querysimpan = mysql_query("INSERT INTO bukutamu  (nama,email,pesan) VALUES ('".$_POST['nama']."','".$_POST['email']."','".$_POST['pesan']."') ");
-
             if ($querysimpan) {
                 echo "<script> alert(' Testimoni Dan Buku Tamu Telha Disimpan '); location.href='index.php' </script>";exit;
             }
         }
   ?>
- <!-- <div class="page-header parallax">
-    	<div id="contact-map" style="width:100%;height:300px"></div>
-    </div> -->
     <br>
-     <!-- Utiity Bar -->
+    
     <div class="utility-bar">
     	<div class="container">
         	<div class="row">
             	<div class="col-md-8 col-sm-6 col-xs-8">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Contact Us</li>
+                        <li><a href="index.php">Home</a></li>
+                        <li class="active">Kontak</li>
                         <li class="active">Testimoni</li>
                     </ol>
             	</div>
@@ -32,7 +28,7 @@
     	<div id="content" class="content full">
       		<div class="container">
             	<div class="listing-header margin-40">
-                	<h2>Contact Us</h2>
+                	<h2>Kontak</h2>
                 </div>
             	<div class="row">
                 	<div class="col-md-3 col-sm-4">
@@ -45,7 +41,7 @@
 							<i class="fa fa-home"></i> <b>Mon - Fri 9.00 - 18.00</b>
                     </div>
                     <div class="col-md-9 col-sm-8">
-                       	<form method="POST" class="contact-form clearfix" >
+                       	<form method="POST" class="contact-form">
                         	<div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">

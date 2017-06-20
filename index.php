@@ -1,15 +1,17 @@
 <?php 
     session_start();
-    include('admin_old/koneksi.php');
+    include('admin/koneksi.php');
     if (isset($_GET['logout'])) 
-    {session_destroy();   header('Location: index.php');}
+    {session_destroy(); 
+         echo "<script> alert('Anda Telah Keluar Dari M2shop'); location.href='index.php'</script>";exit;
+    }
     
  ?>
 <!DOCTYPE HTML>
 <html class="no-js">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>M2SHOP - HOME</title>
+<title>{{Hidden Name Site}}M2SHOP - HOME</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -77,16 +79,17 @@
                 <h4>Login Member M2SHOP</h4>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="POST" action="index.php?p=proses_login"> 
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="text" class="form-control" placeholder="Username" name="username">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block"><span class="fa fa-sign-in"></span> Login</button>
+                    <button type="submit" name="login" class="btn btn-primary btn-block"><span class="fa fa-sign-in"></span> Login</button>
+                    <a href="index.php?p=registrasi" class="btn btn-success btn-block"> <span class="fa fa-user-plus"></span> Daftar</a> 
                 </form>
             </div>
             
@@ -102,13 +105,12 @@
 <script src="assets/js/bootstrap.js"></script> <!-- UI -->
 <script src="assets/js/init.js"></script> <!-- All Scripts -->
 <script src="assets/vendor/flexslider/js/jquery.flexslider.js"></script> <!-- FlexSlider -->
-<script src="assets/http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!-- <script src="assets/http://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
   
 <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
 <script type="text/javascript" src="assets/js/jquery.themepunch.tools.min.js"></script>   
 <script type="text/javascript" src="assets/js/jquery.themepunch.revolution.min.js"></script>
 <script src="assets/script.js"></script>
-
 <script type="text/javascript">
 
     jQuery(document).ready(function() {

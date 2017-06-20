@@ -6,13 +6,23 @@
                     <span class="site-tagline" style="color:white;">M2SHOP<br>Best Online Shop</span>
                 </div>
                 <div class="header-right">
-                    <div class="user-login-panel" >
-                        <a href="#" class="user-login-btn" style="color: white;" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i></a>
+                    <?php 
+                        if (isset($_SESSION['id_kustomer'])) { 
+                     ?>
+                     <div class="user-login-panel" >
+                        <a href="index.php?p=user_profil" class="user-login-btn" style="color: white;"><i class="fa fa-user"></i></a>
                     </div>
+                    <?php }else{ ?>
+                    <div class="user-login-panel" >
+                        <a href="#" class="user-login-btn" style="color: white;" data-toggle="modal" data-target="#loginModal"><i class="fa fa-key"></i></a>
+                    </div>
+                    <?php } ?>
                     <div class="topnav dd-menu">
                         <ul class="top-navigation sf-menu">
-                            <li><a href="results-list.html" style="color: white;"><span class="fa fa-shopping-cart"></span> Keranjang</a></li>
-                             <li><a href="results-list.html" style="color: white;"><span class="fa fa-check"></span> Check Out</a></li>
+                            <li><a href="index.php?p=cart" style="color: white;"><span class="fa fa-shopping-cart"></span> Keranjang</a></li>
+                             <?php if (isset($_SESSION['id_kustomer'])) {
+                               echo "<li><a href='index.php' style='color: white;'><span class='fa fa-check'></span> Check Out</a></li>";  
+                             } ?>
                         </ul>
                     </div>
                 </div>
@@ -22,8 +32,8 @@
         <div class="navbar">
             <div class="container sp-cont">
                 <div class="search-function">
-                   
                     <span><i class="fa fa-phone"></i> Call us <strong>+6285 743 400 656</strong></span>
+                    <span class="fa fa-whatsapp "></span> +6285 743 400 656
                 </div>
                 <a href="#" class="visible-sm visible-xs" id="menu-toggle"><i class="fa fa-bars"></i></a>
                 <!-- Main Navigation -->
@@ -49,16 +59,18 @@
                                 <li><a href="index.php?p=daftar_kota">Ongkir</a></li>
                             </ul>
                         </li>
+                        <?php if (isset($_SESSION['id_kustomer'])) {   ?>
                         <li><a href="javascript:void(0)">Userprofil</a>
                             <ul class="dropdown">
-                                <li><a href="user-dashboard.html">User Dashboard</a></li>
-                                <li><a href="user-dashboard-profile.html">User Profile</a></li>
+                                <li><a href="index.php?p=user_profil">User Profile</a></li>
                                 <li><a href="user-dashboard-settings.html">User Settings</a></li>
-                                <li><a href="user-dashboard-settings.html">Keluar</a></li>
+                                <li><a href="index.php?logout=1">Keluar</a></li>
                             </ul>
                         </li>
+                        <?php }else{ ?>
                         <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
                         <li><a href="index.php?p=registrasi">Daftar</a></li>
+                        <?php } ?>
                         <li><a href="index.php?p=kontak">Kontak</a>
                     </ul>
                 </nav> 
