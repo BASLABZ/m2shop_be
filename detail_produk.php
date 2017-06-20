@@ -1,9 +1,7 @@
 <?php 
 $id = $_GET['id'];
-
         $queryproduk = mysql_query("SELECT p.id_produk,p.nama_produk,p.tgl_posting,p.status,p.harga,p.deskripsi,p.stok,p.gambar,p.public,k.kat_nm 
     from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok >= 0 and p.id_produk='".$id."'");
-
         $row_detail = mysql_fetch_array($queryproduk);
 
  ?>
@@ -74,9 +72,6 @@ $id = $_GET['id'];
                                     <li class="list-group-item"> <span class="badge">Harga</span> Rp. <?php echo rupiah($row_detail['harga']); ?></li>
                                     <li class="list-group-item"> <span class="badge">Stok</span> <?php echo $row_detail['stok']; ?></li>
                                     <li class="list-group-item"> <span class="badge">Kategori</span> <?php echo $row_detail['kat_nm']; ?></li>
-                                    <?php if ($row_detail['status'] == 'new') {?>
-                                    <li class="list-grouproup-item"> <span class="fa fa-tags"> Produk</span> Baru</li>
-                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -103,7 +98,7 @@ $id = $_GET['id'];
                                                  ?>
                                                 <span class="badge"><?php echo $rojumlah['jumlahproduk']; ?></span>
                                                 <?php } ?>
-                                                <a href="#"><?php echo $row_kat['kat_nm']; ?></a></li>
+                                                <a href="index.php?p=filter_kategori_produk&kategori=<?php echo $row_kat['katpro_id']; ?>"><?php echo $row_kat['kat_nm']; ?></a></li>
                                                 <?php } ?>
                                             </ul>
                                         </div>
@@ -321,7 +316,7 @@ $id = $_GET['id'];
                                             <ul class="owl-carousel carousel-fw" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="no" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
                                             <?php 
                                                 $query_resent_produk = mysql_query("SELECT p.id_produk,p.nama_produk,p.tgl_posting,p.harga,p.deskripsi,p.stok,p.gambar,p.public,k.kat_nm 
-                                                    from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok>0 order by p.id_produk desc limit 10");
+                                                    from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok > 0 order by p.id_produk desc limit 10");
                                                 while ($row_resent_produk  = mysql_fetch_array($query_resent_produk)) {
                                                 ?>
                                                 <li class="item">

@@ -1,8 +1,7 @@
-<!-- <div class="page-header parallax" style="background-image:url(images/page_header3.jpg); ">
-    	<div class="container">
-        	<h1 class="page-title">Produk M2SHOP</h1>
-       	</div>
-    </div> -->
+<?php 
+        $id_kategori_produk = $_GET['kategori'];
+
+ ?>
     <br>
      <div class="utility-bar" style="background-color: #e96c4c;">
     	<div class="container">
@@ -11,6 +10,7 @@
                     <ol class="breadcrumb">
                         <li><a href="index.php" style="color: white;">Home</a></li>
                         <li class="active" style="color: white;">Daftar Produk</li>
+                        
                     </ol>
             	</div>
                 <div class="col-md-4 col-sm-6 col-xs-4">
@@ -156,7 +156,7 @@
                         	<div id="results-holder" class="results-list-view">
                             	<?php 
                                 $queryproduk = mysql_query("SELECT p.id_produk,p.nama_produk,p.status,p.tgl_posting,p.harga,p.deskripsi,p.stok,p.gambar,p.public,k.kat_nm 
-                            from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok >= 0 order by p.id_produk desc");
+                            from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok >= 0 AND k.katpro_id = '".$id_kategori_produk."' order by p.id_produk desc");
                                 while ($rowproduk = mysql_fetch_array($queryproduk)) {
                                  ?>
                             	<div class="result-item format-standard">

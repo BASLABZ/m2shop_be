@@ -40,17 +40,26 @@
                             </div>
                             <div id="results-holder" class="results-grid-view">
                                 <?php 
-                                $queryproduk = mysql_query("SELECT p.id_produk,p.nama_produk,p.tgl_posting,p.harga,p.deskripsi,p.stok,p.gambar,p.public,k.kat_nm 
-                            from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok>0 order by p.id_produk desc");
+                                $queryproduk = mysql_query("SELECT p.id_produk,p.nama_produk,p.status,p.tgl_posting,p.harga,p.deskripsi,p.stok,p.gambar,p.public,k.kat_nm 
+                            from produk p INNER JOIN kategori_produk k on p.katpro_id = k.katpro_id where p.stok>=0  order by p.id_produk desc");
                                 while ($rowproduk = mysql_fetch_array($queryproduk)) {
                                  ?>
                                 <div class="result-item format-standard">
                                     <div class="result-item-image">
                                         <a href="admin/images/<?php echo $rowproduk['gambar']; ?>" data-rel="prettyPhoto" class="media-box"><img src="admin/images/<?php echo $rowproduk['gambar']; ?>" style="width: 285px; height: 233px;"></a>
                                         <span class="label label-success vehicle-age"><?php echo $rowproduk['kat_nm']; ?></span>
+                                         <?php if ($rowproduk['status']=='new') { ?>
+                                        <span class="label label-info premium-listing"><li class="fa fa-tags"></li> Baru</span>
+                                        <?php } ?>
                                         <div class="result-item-view-buttons">
-                                            <a href="index.php?p=detail_produk&id=<?php echo $rowproduk['id_produk']; ?>"><i class="fa fa-eye"></i> View Detail</a>
-                                            <a href="aksi.php?module=keranjang&act=tambah&id=<?php echo $rowproduk['id_produk']; ?>"><i class="fa fa-shopping-cart"></i> Beli</a>
+                                            <a href="index.php?p=detail_produk&id=<?php echo $rowproduk['id_produk']; ?>"><i class="fa fa-eye"></i> View Detail</a> 
+                                            <?php 
+                                                if ($rowproduk['stok'] < 1) {
+                                             ?>
+                                            <a href="index.php" onclick="return confirm('Mohon Maaf Stok Item : <?php echo $rowproduk['nama_produk']; ?> Ini Tidak Tersedia?')"><i class="fa fa-shopping-cart"></i> Beli</a>
+                                            <?php }else if ($rowproduk['stok'] > 0) {?>
+                                            <a href="aksi.php?module=keranjang&act=tambah&id=<?php echo $rowproduk['id_produk']; ?>" onclick="return confirm('Mohon Maaf Stok Item : <?php echo $rowproduk['nama_produk']; ?> Ini Tidak Tersedia?')"><i class="fa fa-shopping-cart"></i> Beli</a>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                     <div class="result-item-in">
@@ -65,10 +74,13 @@
                                                 <div class="result-item-pricing">
                                                     <div class="price">Rp. <?php echo rupiah($rowproduk['harga']); ?></div>
                                                 </div>
-                                              <!--   <div class="result-item-action-buttons">
-                                                    <a href="#" class="btn btn-default btn-sm"><i class="fa fa-star-o"></i> Save</a>
-                                                    <a href="vehicle-details.html" class="btn btn-default btn-sm">Enquire</a><br>
-                                                </div> -->
+                                                <div class="result-item-action-buttons">
+                                                    <?php if ($rowproduk['stok'] > 0) { ?>
+                                                     <a href="#" class="btn btn-info btn-sm"><i class="fa fa-star-o"></i> Stok Tersedia</a>
+                                                     <?php }else{ ?>
+                                                     <a href="index.php" class="btn btn-danger btn-sm" onclick="return confirm('Mohon Maaf Stok Item : <?php echo $rowproduk['nama_produk']; ?> Ini Tidak Tersedia?')"><span class="fa fa-times"></span> Stok Habis</a><br>
+                                                     <?php } ?>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="result-item-features">
