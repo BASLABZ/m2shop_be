@@ -13,7 +13,7 @@
 			{
 				$curl = curl_init();
 				curl_setopt_array($curl, array(
-												 CURLOPT_URL => "http://rajaongkir.com/api/starter/province",
+												 CURLOPT_URL => "http://rajaongkir.com/api/starter/province/",
 												 CURLOPT_RETURNTRANSFER => true,
 												 CURLOPT_ENCODING => "",
 												 CURLOPT_MAXREDIRS => 10,
@@ -76,6 +76,7 @@
 			public function hitungOngkir($origin,$destination,$weight,$courier)
 			{
 						$origin = $_GET['origin'];
+						
 						$destination = $_GET['destination'];
 						$weight = $_GET['weight'];
 						$courier = $_GET['courier'];

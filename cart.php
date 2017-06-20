@@ -144,8 +144,18 @@ function harusangka(jumlah){
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    
+                                    
                                     <a href="index.php?p=daftar_produk" class="btn btn-info"><span class="fa fa-shopping-cart"></span> Belanja Lagi</a>
-                                    <a href="" class="btn btn-success"><span class="fa fa-check"></span> Check Out</a>
+
+
+                                    <?php 
+                                      if (isset($_SESSION['id_kustomer'])) {
+                                     ?>
+                                    <a href="index.php?p=simpantransaksi" class="btn btn-success"><span class="fa fa-check"></span> Check Out & Kirim Barang</a>
+                                    <?php }else{ ?>
+                                    <a href="#" onclick="return confirm('Anda Belum Login, Silahkan Login Untuk Proses Check out !')" class="btn btn-success"  data-toggle="modal" data-target="#loginModal"><span class="fa fa-check"></span> Check Out</a>
+                                    <?php } ?>
                                     
                                     </form>
                                	</div>
