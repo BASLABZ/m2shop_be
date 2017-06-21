@@ -75,64 +75,6 @@ $id = $_GET['id'];
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="tbsticky filters-sidebar">
-                            <h3>Filter Produk</h3>
-                            <div class="accordion">
-                                
-                                <!-- Filter by Body Type -->
-                                <div class="accordion-group" style="background-color: #37bc9b; color:white;">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseFour" style=" color:white;">Kategori Produk <i class="fa fa-angle-down"></i> </a> </div>
-                                    <div id="collapseFour" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            <ul class="filter-options-list list-group">
-                                            <?php 
-                                            $query_kategori = mysql_query("SELECT * FROM kategori_produk order by katpro_id DESC");
-                                            while ($row_kat = mysql_fetch_array($query_kategori)) {
-                                                
-                                             ?>
-                                                <li class="list-group-item">
-                                                <?php 
-                                                    $queryproduk_left = mysql_query("SELECT count(*) as jumlahproduk from produk where katpro_id = '".$row_kat['katpro_id']."' ");
-                                                    while ($rojumlah = mysql_fetch_array($queryproduk_left)) {
-                                                 ?>
-                                                <span class="badge"><?php echo $rojumlah['jumlahproduk']; ?></span>
-                                                <?php } ?>
-                                                <a href="index.php?p=filter_kategori_produk&kategori=<?php echo $row_kat['katpro_id']; ?>"><?php echo $row_kat['kat_nm']; ?></a></li>
-                                                <?php } ?>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                
-                                <!-- Filter by Price -->
-                                <div class="accordion-group">
-                                    <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseEight">Filter Harga <i class="fa fa-angle-down"></i> </a> </div>
-                                    <div id="collapseEight" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            <form class="role" method="POST" action="index.php?p=filter_harga_produk">
-                                                <div class="form-inline">
-                                                <div class="form-group">
-                                                    <label>Harga Min</label>
-                                                    <input type="number" class="form-control" placeholder="Min." name="harga_min">
-                                                </div>
-                                                <div class="form-group last-child">
-                                                    <label>Harga Max</label>
-                                                    <input type="number" class="form-control" placeholder="Max." name="harga_max">
-                                                </div>
-                                                <button type="submit" class="btn btn-info btn-block"><span class="fa fa-check"></span> Filter</button>
-                                            </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                
-                            </div>
-                           
-                        </div>
-                        </div>
                    	</div>
                  	<div class="spacer-50"></div>
                     <div class="row">

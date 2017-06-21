@@ -40,10 +40,12 @@
                         </ul>
                     </li>
                      <li>
-                        <a href="#"><i class="fa fa-tags"></i> <span class="nav-label">Data Produk</span><span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-tags"></i> <span class="nav-label">Data Suplier & Produk</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
+                            <li><a href="index.php?pos=data_suplier">Data Suplier</a></li>
                             <li><a href="index.php?pos=data_kategori_produk">Kategori Produk</a></li>
                             <li><a href="index.php?pos=data_produk">Data Produk</a></li>
+
                         </ul>
                     </li>
                     <li>
@@ -59,7 +61,7 @@
                             <li><a href="index.php?pos=preview_laporan_produk">Laporan Data Produk</a></li>
                             <li><a href="index.php?pos=preview_laporan_produk_menipis">Laporan Produk Menipis</a></li>
                             <li><a href="index.php?pos=preview_cartting_produk">Cart Produk </a></li>
-                            <li><a href="index.php">Laporan Transaksi</a></li>
+                            <li><a href="index.php?pos=filter_laporan_order">Laporan Transaksi</a></li>
                         </ul>
                     </li>
                 </ul>

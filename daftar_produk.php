@@ -138,10 +138,11 @@
                             	<div class="result-item format-standard">
                                 	<div class="result-item-image">
                                 		<a href="admin/images/<?php echo $rowproduk['gambar']; ?>" data-rel="prettyPhoto" class="media-box"><img src="admin/images/<?php echo $rowproduk['gambar']; ?>" style="width: 285px; height: 233px;"></a>
-
                                         <span class="label label-success vehicle-age"><?php echo $rowproduk['kat_nm']; ?></span>
-                                        <?php if ($rowproduk['status']=='new') { ?>
-                                        <span class="label label-info premium-listing"><li class="fa fa-tags"></li> Baru</span>
+                                        <?php if ($rowproduk['stok'] < 5 && $rowproduk['stok'] != 0) { ?>
+                                        <span class="label label-info premium-listing"><li class="fa fa-tags"></li> Limit Stock</span>
+                                        <?php }elseif($rowproduk['stok'] == 0){ ?>
+                                        <span class="label label-danger premium-listing"><li class="fa fa-tags"></li> Produk Ini Habis</span>
                                         <?php } ?>
                                         <div class="result-item-view-buttons">
                                             <a href="index.php?p=detail_produk&id=<?php echo $rowproduk['id_produk']; ?>"><i class="fa fa-eye"></i> View Detail</a>

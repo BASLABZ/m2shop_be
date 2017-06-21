@@ -6,6 +6,7 @@ if (isset($_POST['simpan'])) {
     $deskripsi = $_POST['deskripsi'];
     $stok = $_POST['stok'];
     $status = $_POST['status'];
+    $id_suplier = $_POST['id_suplier'];
 
 
     if(!empty($_FILES) && $_FILES['gambar']['size'] > 0 && $_FILES['gambar']['error'] == 0){
@@ -13,13 +14,13 @@ if (isset($_POST['simpan'])) {
         $move = move_uploaded_file($_FILES['gambar']['tmp_name'], 'images/'.$fileName);
         if($move){
             $query = mysql_query("INSERT into produk values('','".$katpro_id."','".$nama_produk."',NOW(),'".$harga."','".$deskripsi."',
-                '".$fileName."','".$stok." ','".$status."','1')");
+                '".$fileName."','".$stok." ','".$status."','1','".$id_suplier."')");
 
         }
         
         }else{
            $query = mysql_query("INSERT into produk values('','".$katpro_id."','".$nama_produk."',NOW(),'".$harga."','".$deskripsi."',
-                '','".$stok." ','".$status."','1')"); 
+                '','".$stok." ','".$status."','1','".$id_suplier."')"); 
         }
         if($query) {
             echo "<script> alert('Data Berhasil dimasukkan'); location.href='index.php?pos=data_produk' </script>";exit;}
@@ -55,6 +56,25 @@ if (isset($_POST['simpan'])) {
                     </div>
                     <div class="ibox-content">
                     <form class="role" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Pilih Suplier</label>
+                                    <select class="form-control select2" name="id_suplier" required>
+                                        <option value="">Pilih Suplier</option>
+                                        <?php 
+                                            $query_suplier = mysql_query("SELECT * FROM suplier order by id_suplier ASC");
+                                            while ($row_suplier = mysql_fetch_array($query_suplier)) {
+                                         ?>
+                                         <option value="<?php echo $row_suplier['id_suplier']; ?>">
+                                             <?php echo $row_suplier['nama_suplier']; ?>
+                                         </option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="form-group">
                             <label>Judul Produk</label>
                             <input type="text" class="form-control" name="nama_produk" required>

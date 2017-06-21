@@ -36,22 +36,20 @@
                 </div>
         </div>
          <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Chartting Order Penjualan</h5>
-
                         </div>
                         <div class="ibox-content">
                           <div id="order_penjualan" style="height: 400px"></div>
                         </div>
                     </div>
                 </div>
-                    <div class="col-lg-6">
+                   <!--  <div class="col-lg-6">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
                                 <h5>Chartting Order Penjualan</h5>
-
                             </div>
                             <div class="ibox-content">
                                 <div class="text-center">
@@ -59,7 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
         </div>
     </div>
     </div>

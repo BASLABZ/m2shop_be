@@ -10,6 +10,7 @@ if (isset($_POST['simpan'])) {
     $deskripsi = $_POST['deskripsi'];
     $stok = $_POST['stok'];
     $status = $_POST['status'];
+    $id_suplier = $_POST['id_suplier'];
 
 
     if(!empty($_FILES) && $_FILES['gambar']['size'] > 0 && $_FILES['gambar']['error'] == 0){
@@ -23,7 +24,8 @@ if (isset($_POST['simpan'])) {
                                                     stok = '".$stok."',
                                                     status = '".$status."',
                                                     katpro_id = '".$katpro_id."',
-                                                    gambar = '".$fileName."' where id_produk = '".$idproduk."' ");
+                                                    gambar = '".$fileName."',
+                                                    id_suplier = '".$id_suplier."' where id_produk = '".$idproduk."' ");
 
         }
         
@@ -34,7 +36,8 @@ if (isset($_POST['simpan'])) {
                                                 deskripsi = '".$deskripsi."',
                                                 stok = '".$stok."',
                                                 status = '".$status."',
-                                                katpro_id = '".$katpro_id."' 
+                                                katpro_id = '".$katpro_id."' ,
+                                                id_suplier = '".$id_suplier."'
                                                 where id_produk = '".$idproduk."' "); 
         }
         if($query) {
@@ -71,6 +74,27 @@ if (isset($_POST['simpan'])) {
                     </div>
                     <div class="ibox-content">
                     <form class="role" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Pilih Suplier</label>
+                                    <select class="form-control select2" name="id_suplier" required>
+                                        <option value="">Pilih Suplier</option>
+                                        <?php 
+                                            $query_suplier = mysql_query("SELECT * FROM suplier order by id_suplier ASC");
+                                            while ($row_suplier = mysql_fetch_array($query_suplier)) {
+                                         ?>
+                                        <option value="<?php echo $row_suplier['id_suplier']; ?>"
+                                             <?php if($row_suplier['id_suplier']== $row_produk['id_suplier']){echo "selected=selected";}?>>
+                                             <?php echo $row_suplier['nama_suplier']; ?>
+                                             </option>
+                                         </option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="form-group">
                             <label>Judul Produk</label>
                             <input type="text" class="form-control" name="nama_produk" required value="<?php echo $row_produk['nama_produk']; ?>">
